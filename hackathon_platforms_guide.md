@@ -1,58 +1,70 @@
 # Hackathon Platforms Guide
 
-> Comprehensive guide to hackathon platforms, APIs, submission guides, and free credits.
+> Comprehensive guide to 40+ hackathon platforms, APIs, submission guides, scrapers, and free credits worldwide.
 
 ---
 
-## Platform Comparison
+## Platform Comparison (Major Platforms)
 
-| Platform | Focus | API Available | Free Credits | Submission Guide |
-|----------|-------|---------------|--------------|------------------|
-| **Devpost** | General hackathons | Unofficial only | Via sponsors | Yes |
-| **HuggingFace** | AI/ML competitions | Official (huggingface_hub) | Yes ($25+) | Yes |
-| **Kaggle** | Data science/ML | Official CLI | Compute credits | Yes |
-| **DoraHacks** | Web3/AI/Blockchain | BUIDL platform | Via sponsors | Yes |
-| **HackerEarth** | Corporate/Coding | Official API | Via sponsors | Yes |
-| **lablab.ai** | AI hackathons | No public API | Yes (extensive) | Yes |
-| **MLH** | Student hackathons | No public API | Via sponsors | Comprehensive |
-| **Unstop** | India-focused | Limited | Via sponsors | Yes |
+| Platform | Focus | API Available | Free Credits | Region |
+|----------|-------|---------------|--------------|--------|
+| **Devpost** | General hackathons | Unofficial scrapers | Via sponsors | Global |
+| **HuggingFace** | AI/ML competitions | Official (`huggingface_hub`) | Yes ($25+) | Global |
+| **Kaggle** | Data science/ML | Official CLI + Python | Compute credits | Global |
+| **DoraHacks** | Web3/AI/Blockchain | BUIDL platform | Via sponsors | Global |
+| **HackerEarth** | Corporate/Coding | Official REST API | Via sponsors | Global |
+| **lablab.ai** | AI hackathons | No public API | Yes (extensive) | Global |
+| **MLH** | Student hackathons | No public API | Via sponsors | Global |
+| **ETHGlobal** | Ethereum/Web3 | Showcase platform | Via sponsors | Global |
+| **Devfolio** | Web3/General | Platform-based | Via sponsors | India |
+| **AngelHack** | Corporate/Enterprise | StackUp platform | Via sponsors | Asia/Global |
+| **Unstop** | Recruitment | Limited | Via sponsors | India |
+| **Product Hunt** | Maker launches | No API | Via sponsors | Global |
 
 ---
 
-## 1. Devpost
+## Devpost Scrapers & Data Extraction
 
+Since Devpost has no official API, here are community tools:
+
+### GitHub Scrapers
+
+| Repository | Description | Language |
+|------------|-------------|----------|
+| [lasamson/devpost-scraper](https://github.com/lasamson/devpost-scraper) | Collects submission data from any hackathon page → CSV | Python |
+| [jayrav13/devpost-scraper](https://github.com/jayrav13/devpost-scraper) | Scrapes all project submissions (65,000+ projects) | Python |
+| [HackNC/DevGET](https://github.com/HackNC/DevGET) | Chrome extension for organizers to export judging CSVs | JavaScript |
+| [ViRb3/devpost-api](https://github.com/ViRb3/devpost-api) | REST API wrapper via Docker | Go |
+
+### Usage Example (lasamson/devpost-scraper)
+```bash
+git clone https://github.com/lasamson/devpost-scraper
+cd devpost-scraper
+pip install -r requirements.txt
+python scraper.py https://hackathon-name.devpost.com
+# Outputs: submissions.csv
+```
+
+### Key Insight from jayrav13
+> "DevPost scans the client's User Agent and recognizes that this request is NOT coming from a browser, thus returning a JSON object of all of the projects on that given page."
+
+---
+
+## Platform Deep Dives
+
+### 1. Devpost
 **Website:** https://devpost.com
 
-### Overview
-The most popular hackathon platform globally, hosting thousands of events annually.
-
-### API Access
-- **Official API:** None publicly available
-- **Unofficial APIs:**
-  - [ViRb3/devpost-api](https://github.com/ViRb3/devpost-api) - Scrapes user profiles and projects
-  - Lambda-based scrapers for custom solutions
-
-### Submission Guide
-- [MLH Guide to Using Devpost](https://guide.mlh.io/general-information/judging-and-submissions/hackathon-submission-portal/using-devpost)
-- Required: Project name, description, demo video, GitHub link
-- Export: CSV export available for organizers
-
-### Free Credits
-Credits come from individual hackathon sponsors, not Devpost itself.
+- **Founded:** 2009 (as ChallengePost)
+- **Stats:** Thousands of hackathons hosted annually
+- **API:** None official - use scrapers above
+- **Export:** CSV export for organizers only
+- **Submission:** Project name, description, video, GitHub link
 
 ---
 
-## 2. HuggingFace Spaces & Competitions
-
+### 2. HuggingFace
 **Website:** https://huggingface.co
-
-### Overview
-Growing platform for AI/ML hackathons with integrated model hosting.
-
-### API Access
-```bash
-pip install huggingface_hub
-```
 
 ```python
 from huggingface_hub import HfApi
@@ -70,13 +82,12 @@ api.upload_file(
 )
 ```
 
-### Current Hackathons (2024-2025)
-- **Agents-MCP-Hackathon** - $16,500 prizes, 4100+ registrations
-- **MCP 1st Birthday** - $21K+ prizes, 7100+ registrations
-- **LeRobot Worldwide** - AI robotics focus
-- **Gradio Hackathons** - UI/demo focused
+**Current Hackathons:**
+- Agents-MCP-Hackathon - $16,500 prizes
+- MCP 1st Birthday - $21K+ prizes, 7100+ registrations
+- LeRobot Worldwide - AI robotics
 
-### Free Credits
+**Free Credits per Event:**
 | Provider | Amount | Availability |
 |----------|--------|--------------|
 | HuggingFace | $25 | All participants |
@@ -84,340 +95,346 @@ api.upload_file(
 | Anthropic | $25 | First 1000 |
 | OpenAI | $25 | First 1000 |
 
-### Submission Guide
-- [Competition Space Documentation](https://github.com/huggingface/competitions/blob/main/docs/source/competition_space.mdx)
-- Submit via Gradio Space or model upload
-- Automatic leaderboard scoring
-
 ---
 
-## 3. Kaggle
-
+### 3. Kaggle
 **Website:** https://kaggle.com
 
-### Overview
-Premier platform for data science and ML competitions with robust API.
-
-### API Access
+**Full API Access:**
 ```bash
 pip install kaggle
-```
 
-**Authentication:**
-1. Go to kaggle.com → Account → Create New API Token
-2. Save `kaggle.json` to `~/.kaggle/`
+# Authentication: Save kaggle.json to ~/.kaggle/
 
-**Commands:**
-```bash
-# List competitions
 kaggle competitions list
-
-# Download data
 kaggle competitions download -c competition-name
-
-# Submit
-kaggle competitions submit -c competition-name -f submission.csv -m "My submission"
-
-# View submissions
-kaggle competitions submissions -c competition-name
-
-# Leaderboard
-kaggle competitions leaderboard -c competition-name
+kaggle competitions submit -c name -f file.csv -m "message"
+kaggle competitions submissions -c name
+kaggle competitions leaderboard -c name
 ```
 
-**Python API:**
-```python
-from kaggle.api.kaggle_api_extended import KaggleApi
+**Free Resources:**
+- 30 hrs/week GPU notebooks
+- 20 hrs/week TPU notebooks
 
-api = KaggleApi()
-api.authenticate()
-
-# List competitions
-api.competitions_list()
-
-# Submit
-api.competition_submit(
-    file_name='submission.csv',
-    message='My submission',
-    competition='titanic'
-)
-```
-
-### Free Credits
-- Free GPU/TPU notebooks (30 hrs/week GPU, 20 hrs/week TPU)
-- No external API credits
-
-### Resources
-- [Official API Documentation](https://www.kaggle.com/docs/api)
-- [GitHub Repository](https://github.com/Kaggle/kaggle-api)
-- [Competition API Tutorial](https://www.kaggle.com/code/sohier/competition-api-detailed-introduction)
+**Documentation:**
+- [Official API Docs](https://www.kaggle.com/docs/api)
+- [GitHub: kaggle-api](https://github.com/Kaggle/kaggle-api)
 
 ---
 
-## 4. DoraHacks
-
+### 4. DoraHacks
 **Website:** https://dorahacks.io
 
-### Overview
-Leading Web3 and frontier-tech hackathon platform with quadratic funding.
-
-### Platform Features
-- **BUIDL AI 2.5** - AI-powered evaluation
-  - Code review and analysis
-  - Plagiarism detection
-  - Team background vetting
-  - 10+ scoring criteria
-
-### API/Integration
-- BUIDL submission platform
-- Quadratic funding rounds
-- Grant programs integration
-
-### Stats
+**Stats:**
 - 21,000+ startup teams
-- $80M+ in funding distributed
-- Focus: Blockchain, Web3, Quantum, AI, Space-Tech
+- $80M+ funding distributed
+- Focus: Web3, Quantum, AI, Space-Tech
 
-### Recent Hackathons
-- AWS Global Vibe: $700K+ prize pool
-- Cronos x402: $42,000 prizes
-- Hack-a-TONx: 230 submissions
-- Circle Developer Bounties: 1500 USDC per track
+**BUIDL AI 2.5 Features:**
+- Code review and analysis
+- Plagiarism detection
+- Team background vetting
+- 10+ scoring criteria
 
-### Submission Guide
-- [Hackathon Page](https://dorahacks.io/hackathon)
-- Submit via BUIDL platform
-- Include: Demo, code repo, documentation
+**Recent Prize Pools:**
+- AWS Global Vibe: $700K+
+- Cronos x402: $42,000
+- Circle Bounties: 1500 USDC/track
 
 ---
 
-## 5. HackerEarth
+### 5. ETHGlobal
+**Website:** https://ethglobal.com
 
+**Stats (ETHGlobal New York):**
+- 1400 attendees, 950 hackers
+- 49 countries represented
+- 33% new to Web3
+- 303 submissions, $500K+ prizes
+
+**Submission Requirements:**
+- 2-4 minute demo video
+- Public repository
+- All work must start after hackathon begins
+- Evaluated on: creativity, functionality, technical difficulty, impact
+
+**Upcoming:**
+- ETHGlobal Buenos Aires (Nov 2025): $500K prizes
+
+---
+
+### 6. lablab.ai
+**Website:** https://lablab.ai
+
+**All events FREE to participate**
+
+**Credit Examples:**
+| Event | Credits |
+|-------|---------|
+| AI21 Labs | $9000 API + $3500 cash |
+| AI Agents | $3000 Upstage + $2500 Together AI |
+| Llama Events | Up to $100K grants |
+
+**Resources:**
+- [Submission Guidelines](https://lablab.ai/delivering-your-hackathon-solution)
+- [Browse Apps](https://lablab.ai/apps)
+
+---
+
+### 7. MLH (Major League Hacking)
+**Website:** https://mlh.io
+
+**Submission Requirements:**
+1. Demo Video: ≤2 minutes
+2. Public code repository
+3. Detailed README
+4. Credit all AI tools used
+
+**Resources:**
+- [Organizer Guide](https://guide.mlh.io)
+- [GitHub: mlh-hackathon-organizer-guide](https://github.com/MLH/mlh-hackathon-organizer-guide)
+- [Judging Plan](https://guide.mlh.io/general-information/judging-and-submissions/judging-plan)
+
+---
+
+### 8. HackerEarth
 **Website:** https://hackerearth.com
 
-### Overview
-Enterprise hackathon platform popular for corporate challenges.
-
-### API Access
+**API Endpoints:**
 ```
 POST /challenges/{challenge_id}/submissions
 GET /challenges/{challenge_id}/leaderboard
 ```
 
-**Response format:**
-```json
-{
-  "leaderboard": [
-    {"rank": 1, "username": "coder1", "score": 100},
-    {"rank": 2, "username": "coder2", "score": 95}
-  ]
-}
-```
-
-### Features
-- Automated leaderboards
-- Code evaluation
-- Filter by country, school, company
-- Practice problems
-
-### Active Hackathons
-- Shell.ai Hackathon (annual)
-- Microsoft Azure Champions League
-- EmpowerX Challenge
-
-### Resources
-- [HackerEarth API](https://publicapi.dev/hackerearth-api)
-- [Challenges Page](https://www.hackerearth.com/challenges/)
+**Documentation:** [PublicAPI.dev](https://publicapi.dev/hackerearth-api)
 
 ---
 
-## 6. lablab.ai
+## Regional & Specialized Platforms
 
-**Website:** https://lablab.ai
+### India
+| Platform | Website | Focus |
+|----------|---------|-------|
+| **Devfolio** | devfolio.co | India's largest builder community, ETHIndia host |
+| **Unstop** | unstop.com | Recruitment hackathons, skill assessments |
+| **Hack2Skill** | hack2skill.com | Corporate challenges |
 
-### Overview
-AI-focused hackathon platform with extensive sponsor credits.
+### Europe
+| Platform | Website | Focus |
+|----------|---------|-------|
+| **Junction** | hackjunction.com | Europe's leading hackathon (Finland) |
+| **JunctionApp** | github.com/hackjunction | Open source organizer platform |
+| **HackZurich** | hackzurich.com | Switzerland's largest |
 
-### Free Credits (Examples)
-| Hackathon | Credits Available |
-|-----------|-------------------|
-| AI21 Labs | $9000 API + $3500 cash |
-| AI Agents | $3000 Upstage, $2500 Together AI |
-| OpenAI Events | $2000 DigitalOcean |
-| Llama Events | Up to $100K grants |
+### Asia
+| Platform | Website | Focus |
+|----------|---------|-------|
+| **AngelHack** | angelhack.com | 250+ events in 100+ cities, StackUp platform |
+| **TAIKAI** | taikai.network | Corporate innovation |
 
-### Submission Guide
-- [Official Submission Guidelines](https://lablab.ai/delivering-your-hackathon-solution)
-- Account required
-- Certificate of completion included
+### Web3/Blockchain
+| Platform | Website | Focus |
+|----------|---------|-------|
+| **ETHGlobal** | ethglobal.com | Ethereum hackathons worldwide |
+| **Gitcoin** | gitcoin.co | Grants + bounties |
+| **DoraHacks** | dorahacks.io | Quadratic funding |
 
-### Benefits
-- All events free to participate
-- No AI experience required
-- Domain experts welcome
-- Project showcased on blog/newsletter
+### Hardware/Maker
+| Platform | Website | Focus |
+|----------|---------|-------|
+| **Hackaday.io** | hackaday.io | World's largest hardware community |
+| **Hackster.io** | hackster.io | Hardware learning community |
+| **Instructables** | instructables.com | DIY projects |
 
-### Browse Apps
-- [Discover AI Applications](https://lablab.ai/apps)
+### Enterprise/Corporate
+| Platform | Website | Focus |
+|----------|---------|-------|
+| **Agorize** | agorize.com | 10M+ innovators, 7000+ programs |
+| **HackHQ** | hackhq.co | Internal corporate hackathons |
+| **Mettl Xathon** | mettl.com | Recruitment + team building |
 
 ---
 
-## 7. MLH (Major League Hacking)
+## Event Discovery Platforms
 
-**Website:** https://mlh.io
+| Platform | Website | Description |
+|----------|---------|-------------|
+| **Luma** | lu.ma/hackathons | Event discovery + hosting for tech |
+| **Hackalist** | hackalist.org | Curated upcoming hackathons |
+| **Hack Club** | hackathons.hackclub.com | High school focused |
+| **Devpost** | devpost.com/hackathons | Largest directory |
+| **MLH** | mlh.io/seasons/2025/events | Student events |
 
-### Overview
-Student-focused hackathon league with comprehensive organizer resources.
+---
+
+## AI-Powered Builder Platforms
+
+### Bolt.new (World's Largest Hackathon)
+**Website:** https://bolt.new
+
+- **Prize Pool:** $1,000,000+
+- **Powered by:** Claude Sonnet 3.5
+- **Requirement:** Build NEW app primarily with Bolt.new
+- **Awards Ceremony:** [bolt.new/awards](https://bolt.new/awards)
+
+### Replit
+**Website:** https://replit.com
+
+- Browser-based IDE
+- Real-time collaboration
+- Built-in deployment
+- Great for hackathon teams
+
+### Buildspace (Closed)
+**Website:** buildspace.so (archived)
+
+- Was "largest accelerator in the world"
+- 30,000+ participants in Nights & Weekends
+- $100K grand prize
+- Backed by a16z and YC
+- **Status:** Closed after Season 5
+
+---
+
+## Product Hunt Hackathons
+**Website:** https://producthunt.com
+
+**Global Hackathon Stats:**
+- 4,500+ makers
+- 124 countries
+- $250,000 in prizes
+
+**Judging:** 50% product/idea, 50% technical
+
+**Tools:**
+- [Hackathon Match](https://www.producthunt.com/products/hackathon-match) - Team matching for PH hackathons
+
+---
+
+## Kiroween 2025 (Case Study)
+
+> From [kiro.dev/blog/kiroween-2025](https://kiro.dev/blog/kiroween-2025/)
+
+**Event:** Kiro's inaugural annual hackathon
+**Dates:** Oct 31 - Dec 5, 2025
+**Prize Pool:** $100,000 across 12 categories (66 winners)
+**Top Prize:** $30,000
+
+### Challenge Categories
+1. **Resurrection** - Bring dead technology back to life
+2. **Frankenstein** - Combine incompatible technologies
+3. **Skeleton Crew** - Build reusable code templates
+4. **Costume Contest** - Polished interfaces with spooky design
 
 ### Submission Requirements
-1. **Demo Video:** 2 minutes or less
-2. **Code Repository:** Must be public
-3. **README:** Detailed explanation
-4. **AI Usage:** Credit all tools used
+- Public repo with `.kiro` directory
+- Functional application URL
+- 3-minute demo video
+- Documentation showing: specs, hooks, steering, MCP usage
 
-### Judging Style
-"Science fair" format - teams at assigned tables, judges rotate.
+### Judging Criteria
+- **Potential Value** - Usefulness and impact
+- **Implementation** - Effective Kiro capability leverage
+- **Quality and Design** - Creativity and polish
 
-### Resources
-- [Hackathon Organizer Guide](https://guide.mlh.io)
-- [Judging and Submissions](https://guide.mlh.io/general-information/judging-and-submissions)
-- [GitHub: Organizer Guide](https://github.com/MLH/mlh-hackathon-organizer-guide)
-- [Rules for Hackathons](https://guide.mlh.io/general-information/judging-and-submissions/rules-for-your-hackathon)
-
-### Free Credits
-Distributed via email to MLH event participants. Check for:
-- Google Cloud credits
-- AWS credits
-- Domain names
-- Various sponsor perks
-
-### Contact
-league@mlh.io
+### Perks
+- Kiro Pro+ tier access during competition
+- Discord support with bi-weekly office hours
 
 ---
 
-## 8. Other Notable Platforms
+## Winning Strategies (from Serial Winners)
 
-### Unstop (formerly Dare2Compete)
-- **Website:** https://unstop.com
-- **Focus:** India, recruitment hackathons
-- **Features:** Skill assessments, gamified hiring
+### Focus on ONE Feature
+> "What you need is a single feature that your application focuses on and does extremely well. The winning submissions are the projects that have a single idea that is coherent, defined, and well-implemented."
 
-### Agorize
-- **Website:** https://agorize.com
-- **Focus:** Enterprise innovation
-- **Stats:** 10M+ innovators, 7000+ programs
+### Pitch > Perfect Code
+> "Judges care more about your business proposition than the technical functionality. The only parts of the software that need to work are the parts used in your pitch."
 
-### TAIKAI
-- **Website:** https://taikai.network
-- **Focus:** Corporate innovation
-- **Features:** Connect companies with developers
+### Preparation Tips
+1. **Install libraries beforehand** - Biggest time waster
+2. **Create a faux deadline** - Finish early for buffer
+3. **Research judges and sponsors** - Tailor your project
+4. **Meet the API Evangelist** - Get validation + help
 
-### Eventornado
-- **Website:** https://eventornado.com
-- **Focus:** User experience
-- **Features:** First-timer friendly
+### Presentation Tips
+- Perform a skit demonstrating the pain point
+- Do an interactive demo
+- Involve the audience
+- Keep it under 3 minutes
 
-### Hack Club
-- **Website:** https://hackathons.hackclub.com
-- **Focus:** High school students
-- **Features:** Mentorship, workshops
+### Team Composition
+> "Team chemistry and makeup is one of the most important factors not only in winning, but also in making sure that you don't burn out."
+
+Ideal team: Programmers + Designers + Project Managers + Visionaries
 
 ---
 
-## Cloud Provider Free Credits
+## Cloud Credits Summary
 
 ### Google Cloud
-| Program | Amount | Requirements |
-|---------|--------|--------------|
-| AI Startup Program | Up to $350,000 | AI-first, Seed to Series A |
-| Year 1 | $250,000 | Application required |
-| Year 2 | $100,000 | + 20% discount |
-| MLH Events | Varies | Check MLH email |
-
-**Apply:** [Google Cloud for Startups](https://cloud.google.com/startup)
+| Program | Amount |
+|---------|--------|
+| AI Startup Program | Up to $350,000 |
+| Year 1 | $250,000 |
+| Year 2 | $100,000 + 20% discount |
 
 ### AWS
-| Program | Amount | Requirements |
-|---------|--------|--------------|
-| Activate Founders | $1,000 | New startups |
-| Activate Portfolio | $5,000-$100,000+ | Via accelerator/VC |
-| Hackathon Credits | $100 | First-come basis |
-
-**Apply:** [AWS Activate](https://aws.amazon.com/activate/)
+| Program | Amount |
+|---------|--------|
+| Activate Founders | $1,000 |
+| Activate Portfolio | $5,000-$100,000+ |
+| Hackathon Credits | $100 (first-come) |
 
 ### Microsoft Azure
-| Program | Amount | Requirements |
-|---------|--------|--------------|
-| Founders Hub | $1,000 | New Azure customer |
-| Startups | Up to $150,000 | Application required |
-
-**Apply:** [Microsoft for Startups](https://www.microsoft.com/en-us/startups)
+| Program | Amount |
+|---------|--------|
+| Founders Hub | $1,000 |
+| Startups Program | Up to $150,000 |
 
 ### Pro Tip: Stack Credits
-You can use multiple programs simultaneously:
-- Azure for OpenAI models (GPT-4)
+Use multiple providers simultaneously:
+- Azure for GPT-4
 - Google Cloud for Gemini
 - AWS Bedrock for Claude
 
 ---
 
-## Submission Best Practices
+## Awesome Lists & Resources
 
-### Video Demo
-- **Length:** 2-3 minutes max
-- **Content:** Problem → Solution → Demo → Impact
-- **Tools:** Loom, OBS, or screen recording
+### GitHub Awesome Lists
+- [dribdat/awesome-hackathon](https://github.com/dribdat/awesome-hackathon) - Platforms, tools, guides
+- [mbiesiad/awesome-hackathons](https://github.com/mbiesiad/awesome-hackathon) - Global hackathon list
+- [HappyHackingSpace/awesome-hackathon](https://github.com/HappyHackingSpace/awesome-hackathon) - Tools to win
 
-### README Structure
-```markdown
-# Project Name
+### Open Source Platforms
+| Platform | Tech | Description |
+|----------|------|-------------|
+| **Dribdat** | Python/JS | Hackathons for impact |
+| **Hibiscus** | - | Turnkey platform by HackSC |
+| **JunctionApp** | - | All-in-one by Junction |
+| **OpenHackathon** | Next.js | Cloud dev environments |
+| **Hackerspace3** | Ruby | For GovHack events |
 
-## Inspiration
-What problem are you solving?
-
-## What it does
-Brief description of functionality
-
-## How we built it
-Tech stack and architecture
-
-## Challenges we ran into
-Honest about difficulties
-
-## Accomplishments
-What are you proud of?
-
-## What we learned
-Skills gained
-
-## What's next
-Future roadmap
-
-## Built With
-- technology-1
-- technology-2
-
-## Try it out
-- [Demo Link](url)
-- [Video](url)
-```
-
-### Sponsor Integration
-- Mention specific sponsor features used
-- Link to sponsor documentation
-- Show API/SDK integration in code
+### Tools
+| Tool | Purpose |
+|------|---------|
+| **HELPq** | Mentor queue management |
+| **Hangar** | Slack bot for judging |
+| **Gavel** | Mathematical judging system |
+| **Hackathon Starter** | Node.js boilerplate |
 
 ---
 
 ## API Summary Table
 
-| Platform | Auth Method | Rate Limits | Documentation |
-|----------|-------------|-------------|---------------|
+| Platform | Auth Method | Rate Limits | Docs |
+|----------|-------------|-------------|------|
 | Kaggle | API Token (JSON) | Standard | [Docs](https://www.kaggle.com/docs/api) |
 | HuggingFace | API Token | Standard | [Docs](https://huggingface.co/docs/huggingface_hub) |
 | HackerEarth | API Key | Contact | [PublicAPI](https://publicapi.dev/hackerearth-api) |
-| Devpost | N/A (unofficial) | Scraping limits | [Unofficial](https://github.com/ViRb3/devpost-api) |
+| Devpost | N/A (scraping) | Rate-limited | [Scrapers](#devpost-scrapers--data-extraction) |
 | DoraHacks | Platform-based | N/A | [BUIDL](https://dorahacks.io/buidl) |
 
 ---
@@ -425,23 +442,28 @@ Future roadmap
 ## Quick Links
 
 ### Find Hackathons
-- [Devpost Hackathons](https://devpost.com/hackathons)
+- [Devpost](https://devpost.com/hackathons)
 - [MLH Season](https://mlh.io/seasons/2025/events)
-- [DoraHacks Events](https://dorahacks.io/hackathon)
-- [HackerEarth Challenges](https://www.hackerearth.com/challenges/)
-- [lablab.ai Events](https://lablab.ai/event)
-- [Unstop Hackathons](https://unstop.com/hackathons)
-
-### Submission Platforms
-- [Devpost](https://devpost.com)
-- [Devfolio](https://devfolio.co)
-- [HuggingFace Spaces](https://huggingface.co/spaces)
+- [DoraHacks](https://dorahacks.io/hackathon)
+- [HackerEarth](https://www.hackerearth.com/challenges/)
+- [lablab.ai](https://lablab.ai/event)
+- [Luma Hackathons](https://lu.ma/hackathons)
+- [ETHGlobal](https://ethglobal.com/events)
+- [Devfolio](https://devfolio.co/hackathons)
+- [Unstop](https://unstop.com/hackathons)
 
 ### Learning Resources
 - [MLH Organizer Guide](https://guide.mlh.io)
 - [Kaggle Learn](https://www.kaggle.com/learn)
 - [HuggingFace Course](https://huggingface.co/learn)
 
+### Blog Posts & Tips
+- [How I Win Most Hackathons](https://szeyusim.medium.com/how-i-win-most-hackathons-stories-pro-tips-from-a-serial-hacker-1969c6470f92)
+- [Ultimate 8 Step Guide](https://medium.com/garyyauchan/ultimate-8-step-guide-to-winning-hackathons-84c9dacbe8e)
+- [10+ Projects to Win in 2024](https://dev.to/lokesh_singh/10-projects-to-win-hackathons-in-2024-5596)
+- [Tips for Devpost Wins](https://medium.com/developer-circles-lusaka/tips-on-how-to-win-an-online-hackathon-on-devpost-c548027e0eae)
+
 ---
 
 *Last Updated: December 2024*
+*Platforms Covered: 40+*
