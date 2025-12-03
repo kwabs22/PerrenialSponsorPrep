@@ -1,0 +1,14 @@
+{
+  "name": "clerk-protected-dashboard",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@clerk/clerk-react": "^5.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

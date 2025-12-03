@@ -1,0 +1,10 @@
+{
+  "name": "supabase-cron-notifications",
+  "type": "module",
+  "scripts": {
+    "deploy": "supabase functions deploy notifications"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}

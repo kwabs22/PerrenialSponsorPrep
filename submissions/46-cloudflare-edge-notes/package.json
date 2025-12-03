@@ -1,0 +1,15 @@
+{
+  "name": "cloudflare-edge-notes",
+  "version": "1.0.0",
+  "description": "Edge notes app with Cloudflare Workers and D1",
+  "main": "index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create notes-db",
+    "db:init": "wrangler d1 execute notes-db --command \"CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, content TEXT, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP)\""
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
