@@ -2,11 +2,23 @@
   import { marked } from 'marked';
   import { onMount } from 'svelte';
 
+  // Configure marked to generate heading IDs for anchor links
+  const renderer = new marked.Renderer();
+  renderer.heading = function(text, level) {
+    // Generate slug from heading text (GitHub-style)
+    const slug = text.toLowerCase()
+      .replace(/<[^>]*>/g, '')           // Remove HTML tags
+      .replace(/[^\w\s-]/g, '')          // Remove special chars except hyphens
+      .replace(/\s+/g, '-')              // Replace spaces with hyphens
+      .replace(/--+/g, '-')              // Replace multiple hyphens with single
+      .trim();
+    return `<h${level} id="${slug}">${text}</h${level}>`;
+  };
+  marked.setOptions({ renderer });
+
   // File definitions with metadata
   const files = [
-    { id: 'sponsor_combinations', name: 'Tool Combinations (330 ideas)', path: 'sponsor_combinations_ideas.md', category: 'Ideas', icon: '🔗' },
-    { id: 'ics_combinations', name: 'ICS Combinations (60 ideas)', path: 'ics_combinations_ideas.md', category: 'Ideas', icon: '📅' },
-    { id: 'ar_tools', name: 'AR Tools (65 ideas)', path: 'ar_tools_combinations_ideas.md', category: 'Ideas', icon: '👓' },
+    { id: 'sponsor_combinations', name: 'Tool Combinations (455 ideas)', path: 'sponsor_combinations_ideas.md', category: 'Ideas', icon: '🔗' },
     { id: 'local_ai_100', name: '100 Local AI Uses (4GB)', path: '100_local_ai_usecases_4gb.md', category: 'Ideas', icon: '💻' },
     { id: 'free_hackathon', name: 'Free Hackathon Ideas', path: 'free_hackathon_ideas.md', category: 'Ideas', icon: '💡' },
     { id: 'local_ai_guide', name: 'Local AI Guide', path: 'local_ai_guide.md', category: 'Guides', icon: '🤖' },
@@ -23,6 +35,7 @@
   let loading = {};
   let searchQuery = '';
   let sidebarCollapsed = false;
+  let instanceCounter = 0;
 
   // Load file content
   async function loadFile(file) {
@@ -39,20 +52,17 @@
     loading[file.id] = false;
   }
 
-  // Toggle panel
-  function togglePanel(file) {
-    const index = openPanels.findIndex(p => p.id === file.id);
-    if (index >= 0) {
-      openPanels = openPanels.filter(p => p.id !== file.id);
-    } else {
-      openPanels = [...openPanels, file];
-      loadFile(file);
-    }
+  // Open panel (allows multiple instances of same file)
+  function openPanel(file) {
+    instanceCounter++;
+    const panelInstance = { ...file, instanceId: `${file.id}_${instanceCounter}` };
+    openPanels = [...openPanels, panelInstance];
+    loadFile(file);
   }
 
-  // Close panel
-  function closePanel(fileId) {
-    openPanels = openPanels.filter(p => p.id !== fileId);
+  // Close panel by instance ID
+  function closePanel(instanceId) {
+    openPanels = openPanels.filter(p => p.instanceId !== instanceId);
   }
 
   // Filter files by search
@@ -66,12 +76,11 @@
     return acc;
   }, {});
 
-  // Open all files
+  // Open all files (one instance each)
   function openAll() {
     files.forEach(file => {
       if (!openPanels.find(p => p.id === file.id)) {
-        openPanels = [...openPanels, file];
-        loadFile(file);
+        openPanel(file);
       }
     });
   }
@@ -124,7 +133,7 @@
                 <button
                   class="file-item"
                   class:active={openPanels.find(p => p.id === file.id)}
-                  on:click={() => togglePanel(file)}
+                  on:click={() => openPanel(file)}
                 >
                   <span class="icon">{file.icon}</span>
                   <span class="name">{file.name}</span>
@@ -156,16 +165,16 @@
       <!-- Tabs Layout -->
       <div class="tabs-layout">
         <div class="tabs-header">
-          {#each openPanels as panel}
+          {#each openPanels as panel (panel.instanceId)}
             <button
               class="tab"
-              class:active={openPanels[0]?.id === panel.id}
+              class:active={openPanels[0]?.instanceId === panel.instanceId}
               on:click={() => {
-                openPanels = [panel, ...openPanels.filter(p => p.id !== panel.id)];
+                openPanels = [panel, ...openPanels.filter(p => p.instanceId !== panel.instanceId)];
               }}
             >
               <span>{panel.icon} {panel.name}</span>
-              <span class="close" on:click|stopPropagation={() => closePanel(panel.id)}>×</span>
+              <span class="close" on:click|stopPropagation={() => closePanel(panel.instanceId)}>×</span>
             </button>
           {/each}
         </div>
@@ -184,11 +193,11 @@
     {:else}
       <!-- Grid/Columns Layout -->
       <div class="panels-container" class:columns={layoutMode === 'columns'}>
-        {#each openPanels as panel (panel.id)}
+        {#each openPanels as panel (panel.instanceId)}
           <div class="panel">
             <div class="panel-header">
               <span class="panel-title">{panel.icon} {panel.name}</span>
-              <button class="close-btn" on:click={() => closePanel(panel.id)}>×</button>
+              <button class="close-btn" on:click={() => closePanel(panel.instanceId)}>×</button>
             </div>
             <div class="panel-content">
               {#if loading[panel.id]}

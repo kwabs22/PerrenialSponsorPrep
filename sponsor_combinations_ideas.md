@@ -1,29 +1,31 @@
 # Sponsor Tool Combinations & Project Ideas
 
-> 66 two-tool combinations × 5 project ideas each = 330 project ideas
+> 91 two-tool combinations × 5 project ideas each = 455 project ideas
 
 ---
 
 ## Your Tool Stack
 
-| # | Tool | Category |
-|---|------|----------|
-| 1 | **PlayCanvas** | Web 3D/Game Engine |
-| 2 | **SBC** (Raspberry Pi, etc.) | Hardware/IoT |
-| 3 | **Godot** | Game Engine |
-| 4 | **Unreal** | Game Engine |
-| 5 | **GitHub Actions** | CI/CD |
-| 6 | **Free Public APIs** (Reddit, News) | Data Sources |
-| 7 | **ArUco Markers & CV** | Computer Vision |
-| 8 | **3D Printing** | Fabrication |
-| 9 | **React Native + Expo** | Mobile Development |
-| 10 | **Svelte + Vite** | Web Frontend |
-| 11 | **NLTK & spaCy** | NLP |
-| 12 | **Embodied Knowledge** | Physical/Tangible Learning |
+| # | Tool | Category | Jump to |
+|---|------|----------|---------|
+| 1 | **PlayCanvas** | Web 3D/Game Engine | [Combinations](#1-playcanvas-sbc-5-ideas) |
+| 2 | **SBC** (Raspberry Pi, etc.) | Hardware/IoT | [Combinations](#12-sbc-godot-5-ideas) |
+| 3 | **Godot** | Game Engine | [Combinations](#22-godot-unreal-5-ideas) |
+| 4 | **Unreal** | Game Engine | [Combinations](#31-unreal-github-actions-5-ideas) |
+| 5 | **GitHub Actions** | CI/CD | [Combinations](#39-github-actions-free-public-apis-5-ideas) |
+| 6 | **Free Public APIs** (Reddit, News) | Data Sources | [Combinations](#46-free-public-apis-arucocv-5-ideas) |
+| 7 | **ArUco Markers & CV** | Computer Vision | [Combinations](#52-arucocv-3d-printing-5-ideas) |
+| 8 | **3D Printing** | Fabrication | [Combinations](#57-3d-printing-react-nativeexpo-5-ideas) |
+| 9 | **React Native + Expo** | Mobile Development | [Combinations](#61-react-nativeexpo-sveltevite-5-ideas) |
+| 10 | **Svelte + Vite** | Web Frontend | [Combinations](#64-sveltevite-nltkspacy-5-ideas) |
+| 11 | **NLTK & spaCy** | NLP | [Combinations](#66-nltkspacy-embodied-knowledge-5-ideas) |
+| 12 | **Embodied Knowledge** | Physical/Tangible Learning | [Combinations](#66-nltkspacy-embodied-knowledge-5-ideas) |
+| 13 | **ICS Creation** | Calendar/Scheduling | [Combinations](#67-ics-playcanvas-5-ideas) |
+| 14 | **AR Tools** | Augmented Reality | [Combinations](#79-ar-tools-playcanvas-5-ideas) |
 
 ---
 
-## All 66 Combinations
+## All 91 Combinations
 
 ### 1. PlayCanvas + SBC (5 ideas)
 
@@ -817,14 +819,314 @@
 
 ---
 
+### 67. ICS + PlayCanvas (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **3D Event Timeline** | Visualize calendar events in 3D space |
+| 2 | **Virtual Conference Hall** | 3D venue with ICS-synced session schedule |
+| 3 | **Game Event Scheduler** | In-game events that sync to real calendar |
+| 4 | **3D Countdown Timer** | Visual countdown to ICS events |
+| 5 | **Interactive Agenda** | 3D conference schedule explorer |
+
+---
+
+### 68. ICS + SBC (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **Calendar Display** | E-ink display showing today's events |
+| 2 | **Meeting Room Sign** | SBC outside room showing current/next meeting |
+| 3 | **Event Alert System** | LED/buzzer notifications before events |
+| 4 | **Smart Clock** | Clock that shows upcoming calendar events |
+| 5 | **Presence Indicator** | Light shows if you're in a meeting (from ICS) |
+
+---
+
+### 69. ICS + Godot (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **Time Management Game** | Game events sync to your real calendar |
+| 2 | **Study Scheduler RPG** | RPG where quests are your study schedule |
+| 3 | **Habit Tracker Game** | Gamified habits with calendar reminders |
+| 4 | **Event Reminder Pet** | Virtual pet that reminds you of events |
+| 5 | **Daily Planner Puzzle** | Arrange blocks matching your schedule |
+
+---
+
+### 70. ICS + Unreal (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **VR Calendar Room** | Walk through your schedule in VR |
+| 2 | **Conference Simulator** | Realistic conference with ICS schedule |
+| 3 | **Training Schedule Viz** | Athletes visualize their training calendar |
+| 4 | **Project Timeline World** | 3D Gantt chart environment |
+| 5 | **Historical Timeline VR** | Walk through historical events |
+
+---
+
+### 71. ICS + GitHub Actions (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **Release Calendar** | Auto-generate ICS from GitHub releases |
+| 2 | **Sprint Calendar Sync** | Issues → ICS for sprint planning |
+| 3 | **Deadline Reminder Bot** | Generate ICS for PR deadlines |
+| 4 | **Changelog Calendar** | Track version releases in calendar |
+| 5 | **On-Call Schedule** | Generate ICS from on-call rotations |
+
+---
+
+### 72. ICS + Free Public APIs (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **Sports Calendar** | Generate ICS from sports API schedules |
+| 2 | **Astronomy Events** | NASA API → ICS for moon phases, eclipses |
+| 3 | **Movie Release Calendar** | TMDB API → ICS for movie releases |
+| 4 | **Holiday Calendar** | Auto-generate regional holiday calendars |
+| 5 | **News Event Timeline** | Major news events as calendar feed |
+
+---
+
+### 73. ICS + ArUco/CV (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **Event Check-In** | Scan marker to add event to calendar |
+| 2 | **Poster Scanner** | Scan event poster, extract date → ICS |
+| 3 | **Meeting Room Booking** | Scan room marker to book and get ICS |
+| 4 | **Business Card Scanner** | Scan card → add follow-up reminder |
+| 5 | **Ticket Scanner** | Scan ticket QR → add event to calendar |
+
+---
+
+### 74. ICS + 3D Printing (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **Print Job Calendar** | Track print jobs as calendar events |
+| 2 | **Maintenance Schedule** | ICS reminders for printer maintenance |
+| 3 | **Physical Calendar Generator** | Generate printable desk calendar |
+| 4 | **Project Deadline Tracker** | Print timeline showing project milestones |
+| 5 | **Filament Order Reminders** | Predict when to order, add to calendar |
+
+---
+
+### 75. ICS + React Native/Expo (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **Event App with Export** | Event app that exports ICS files |
+| 2 | **Habit Tracker** | Habits become calendar events |
+| 3 | **Travel Itinerary** | Generate ICS from travel plans |
+| 4 | **Class Schedule App** | Course schedule → ICS export |
+| 5 | **Booking App** | Reservations with calendar integration |
+
+---
+
+### 76. ICS + Svelte/Vite (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **Event Landing Page** | One-page event site with "Add to Calendar" |
+| 2 | **Calendar Feed Generator** | Web tool to create subscribable feeds |
+| 3 | **Countdown Website** | Event countdown with ICS download |
+| 4 | **Schedule Builder** | Drag-drop schedule → export ICS |
+| 5 | **Booking Widget** | Embeddable booking with ICS confirmation |
+
+---
+
+### 77. ICS + NLTK/spaCy (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **Email to Calendar** | Parse emails, extract events → ICS |
+| 2 | **Natural Language Scheduler** | "Meeting Friday 3pm" → ICS |
+| 3 | **Document Event Extractor** | Find dates in docs, create events |
+| 4 | **Meeting Notes Parser** | Extract action items with deadlines → ICS |
+| 5 | **Chat to Calendar** | Parse chat messages for event mentions |
+
+---
+
+### 78. ICS + Embodied Knowledge (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **Study Schedule Generator** | Spaced repetition → calendar events |
+| 2 | **Practice Reminder System** | Skill practice schedule as ICS |
+| 3 | **Learning Path Calendar** | Course curriculum → calendar |
+| 4 | **Exercise Routine Scheduler** | Workout plan as calendar events |
+| 5 | **Habit Formation Tracker** | 21-day habit challenges in calendar |
+
+---
+
+### 79. AR Tools + PlayCanvas (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **WebAR Game** | PlayCanvas game triggered by AR marker |
+| 2 | **Product Configurator AR** | View customized 3D products in your space |
+| 3 | **AR Portfolio** | Business card triggers 3D portfolio |
+| 4 | **Interactive AR Manual** | Point at product, see 3D instructions |
+| 5 | **AR Showroom** | Place PlayCanvas furniture in your room |
+
+---
+
+### 80. AR Tools + SBC (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **AR IoT Dashboard** | Point phone at SBC, see sensor data overlay |
+| 2 | **AR Robot Control** | See robot's planned path in AR |
+| 3 | **Smart Home AR** | Point at devices, see status/controls |
+| 4 | **AR Plant Monitor** | Point at plant, see soil/water data |
+| 5 | **Hardware Debug AR** | See GPIO pin labels in AR overlay |
+
+---
+
+### 81. AR Tools + Godot (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **AR Mobile Game** | Godot game with ARCore/ARKit |
+| 2 | **Tabletop AR** | Board game with AR pieces |
+| 3 | **AR Pet Game** | Virtual pet in your room |
+| 4 | **Location-Based AR** | Pokemon Go-style with Godot |
+| 5 | **AR Puzzle Game** | Solve puzzles on real surfaces |
+
+---
+
+### 82. AR Tools + Unreal (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **High-Fidelity AR** | Photorealistic AR experiences |
+| 2 | **AR Architecture Viz** | Place buildings in real locations |
+| 3 | **AR Training Sim** | Overlay instructions on real equipment |
+| 4 | **AR Film Production** | Virtual set extensions |
+| 5 | **AR Vehicle Showroom** | Life-size car in your driveway |
+
+---
+
+### 83. AR Tools + GitHub Actions (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **AR Asset Pipeline** | Auto-optimize 3D models for AR on push |
+| 2 | **WebAR Deploy** | Auto-deploy AR experiences to CDN |
+| 3 | **AR Test Automation** | Screenshot testing for AR scenes |
+| 4 | **Version Tracker** | Auto-update AR app version markers |
+| 5 | **AR Model Validator** | Check file sizes/poly counts on PR |
+
+---
+
+### 84. AR Tools + Free Public APIs (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **AR Weather** | Point at sky, see forecast overlay |
+| 2 | **AR Wikipedia** | Point at landmarks, see Wikipedia info |
+| 3 | **AR Restaurant Reviews** | Point at restaurant, see Yelp ratings |
+| 4 | **AR Transit Info** | Point at bus stop, see arrival times |
+| 5 | **AR Star Map** | Point at sky, see constellation names |
+
+---
+
+### 85. AR Tools + ArUco/CV (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **Hybrid Tracking** | ArUco for precision, AR.js for rendering |
+| 2 | **Multi-Marker Scenes** | Complex AR with multiple ArUco markers |
+| 3 | **AR Calibration Tool** | Use ArUco for accurate AR placement |
+| 4 | **Industrial AR** | ArUco on machinery + AR instructions |
+| 5 | **AR Motion Capture** | Track ArUco markers, render AR skeleton |
+
+---
+
+### 86. AR Tools + 3D Printing (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **Print Preview AR** | See how print will look before printing |
+| 2 | **Assembly Guide AR** | AR instructions for multi-part prints |
+| 3 | **Scale Check** | Place AR model to verify size before print |
+| 4 | **Print-and-Scan Toys** | Printed toys with AR features |
+| 5 | **AR Model Customizer** | Customize in AR, then export to print |
+
+---
+
+### 87. AR Tools + React Native/Expo (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **AR Shopping App** | Try products in your space |
+| 2 | **AR Navigation** | Indoor navigation with AR arrows |
+| 3 | **AR Social App** | Leave AR notes for friends |
+| 4 | **AR Fitness** | Exercise form overlay |
+| 5 | **AR Measurement** | Measure real objects with phone |
+
+---
+
+### 88. AR Tools + Svelte/Vite (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **WebAR Landing Page** | Product page with "View in AR" button |
+| 2 | **AR Portfolio Site** | Projects viewable in AR |
+| 3 | **AR Event Page** | Event venue preview in AR |
+| 4 | **Furniture Store** | E-commerce with AR preview |
+| 5 | **AR Tutorial Site** | Interactive AR learning modules |
+
+---
+
+### 89. AR Tools + NLTK/spaCy (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **Voice-Controlled AR** | "Place a chair here" → AR placement |
+| 2 | **AR Language Learning** | Point at objects, hear pronunciation |
+| 3 | **AR Reading Assistant** | Point at text, get definitions |
+| 4 | **Conversational AR Guide** | Ask questions, see AR answers |
+| 5 | **AR Accessibility** | Describe AR scene in natural language |
+
+---
+
+### 90. AR Tools + Embodied Knowledge (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **AR Anatomy Lesson** | See organs overlaid on body |
+| 2 | **AR Chemistry Lab** | Virtual molecules on real desk |
+| 3 | **AR Music Teacher** | See finger positions on real instrument |
+| 4 | **AR Sports Coach** | Overlay proper form on yourself |
+| 5 | **AR History Walk** | Historical scenes in real locations |
+
+---
+
+### 91. AR Tools + ICS Creation (5 ideas)
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | **AR Event Poster** | Scan poster → see 3D preview + add to calendar |
+| 2 | **AR Conference Schedule** | Point at badge, see schedule + export ICS |
+| 3 | **AR Meeting Room** | See room's schedule in AR, book + get ICS |
+| 4 | **AR Reminder Notes** | Place AR sticky notes that create calendar events |
+| 5 | **AR Ticket Scanner** | Scan ticket, see event info + add to calendar |
+
+---
+
 ## Summary Statistics
 
 | Metric | Count |
 |--------|-------|
-| Total tools | 12 |
-| Total combinations | 66 |
+| Total tools | 14 |
+| Total combinations | 91 |
 | Ideas per combination | 5 |
-| **Total project ideas** | **330** |
+| **Total project ideas** | **455** |
 
 ## Top Synergy Combinations
 
@@ -837,8 +1139,11 @@
 | **Svelte + Free APIs** | Rapid data dashboards |
 | **NLTK + Free APIs** | Text analysis of live data |
 | **PlayCanvas + ArUco** | Browser AR experiences |
+| **ICS + NLTK/spaCy** | Natural language → calendar events |
+| **AR Tools + PlayCanvas** | Both web-based, easy integration |
+| **AR Tools + 3D Printing** | Preview before you print |
 
 ---
 
 *Created: December 2025*
-*Total Ideas: 330*
+*Total Ideas: 455*
