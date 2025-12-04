@@ -30,7 +30,7 @@
 
     loading[file.id] = true;
     try {
-      const response = await fetch(`../${file.path}`);
+      const response = await fetch(`./docs/${file.path}`);
       const text = await response.text();
       fileContents[file.id] = marked(text);
     } catch (error) {
