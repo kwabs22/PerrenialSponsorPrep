@@ -54,6 +54,19 @@ A comprehensive analysis of all meaningful 2-sponsor pairings. Use this to infer
    - [Framework × Frontend](#43-framework--frontend)
    - [Framework × Database](#44-framework--database)
    - [Cloud × Analytics](#45-cloud--analytics)
+   - [CLI Coders × LLM](#46-headless-cli-coders--llm)
+   - [CLI Coders × Dev Tools](#47-headless-cli-coders--dev-tools)
+   - [CLI Coders × Vibe Coding](#48-headless-cli-coders--vibe-coding)
+   - [Vibe Coding × Frontend](#49-vibe-coding--frontenddeployment)
+   - [Vibe Coding × Database](#50-vibe-coding--database)
+   - [Vibe Coding × Auth](#51-vibe-coding--authentication)
+   - [Vibe Coding × E-commerce](#52-vibe-coding--e-commerce)
+   - [Vibe Coding × Image Gen](#53-vibe-coding--image-generation)
+   - [Infographics × LLM](#54-infographics--llm)
+   - [Infographics × Analytics](#55-infographics--analytics)
+   - [Infographics × E-commerce](#56-infographics--e-commerce)
+   - [Infographics × Frontend](#57-infographics--frontend)
+   - [Infographics × Vibe Coding](#58-infographics--vibe-coding)
 4. [Inference Rules for N-Sponsor Combinations](#inference-rules-for-n-sponsor-combinations)
 5. [Quick Lookup Tables](#quick-lookup-tables)
 
@@ -83,6 +96,9 @@ A comprehensive analysis of all meaningful 2-sponsor pairings. Use this to infer
 | **P. Developer Tools** | GitHub, Docker, Postman | Code, containers, APIs |
 | **Q. Productivity** | Notion, Airtable, Slack | Workspace, collaboration |
 | **R. Inference Platforms** | Groq, Together AI, Fireworks, Replicate | Fast/cheap LLM inference |
+| **S. Headless CLI Coders** | Claude Code, Cursor CLI, Aider, Cline, Codex CLI, Gemini CLI | Terminal-based AI coding agents |
+| **T. Vibe Coding Tools** | Lovable, Replit, Bolt.new, v0, Windsurf | Natural language app builders |
+| **U. Visual/Infographics** | Nano Banana Infographics | Data visualization, infographic generation |
 
 ---
 
@@ -90,26 +106,29 @@ A comprehensive analysis of all meaningful 2-sponsor pairings. Use this to infer
 
 ### Synergy Ratings: High (3) | Medium (2) | Low (1) | N/A (-)
 
-|     | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R |
-|-----|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **A. LLM** | - | 3 | 3 | 3 | 3 | 2 | 2 | 3 | 3 | 3 | 3 | 2 | 2 | 3 | 2 | 3 | 3 | 2 |
-| **B. Vector DB** | 3 | - | 2 | 3 | 2 | 3 | 1 | 1 | 1 | 2 | 2 | 1 | 1 | 1 | 1 | 1 | 2 | 2 |
-| **C. Cloud** | 3 | 2 | - | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 3 | 1 | 3 |
-| **D. Framework** | 3 | 3 | 2 | - | 3 | 2 | 1 | 2 | 1 | 2 | 2 | 2 | 1 | 1 | 1 | 2 | 2 | 2 |
-| **E. Frontend** | 3 | 2 | 2 | 3 | - | 3 | 3 | 2 | 2 | 2 | 2 | 2 | 3 | 1 | 3 | 2 | 2 | 2 |
-| **F. Database** | 2 | 3 | 2 | 2 | 3 | - | 3 | 2 | 2 | 2 | 2 | 3 | 2 | 1 | 1 | 2 | 2 | 1 |
-| **G. Auth** | 2 | 1 | 2 | 1 | 3 | 3 | - | 2 | 3 | 2 | 1 | 2 | 1 | 2 | 1 | 2 | 2 | 1 |
-| **H. Comms** | 3 | 1 | 2 | 2 | 2 | 2 | 2 | - | 1 | 2 | 1 | 3 | 1 | 2 | 1 | 2 | 3 | 2 |
-| **I. Payments** | 3 | 1 | 2 | 1 | 2 | 2 | 3 | 1 | - | 3 | 1 | 3 | 1 | 2 | 1 | 1 | 1 | 1 |
-| **J. E-commerce** | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | - | 3 | 3 | 2 | 3 | 3 | 1 | 1 | 2 |
-| **K. Search** | 3 | 2 | 2 | 2 | 2 | 2 | 1 | 1 | 1 | 3 | - | 2 | 2 | 1 | 1 | 1 | 2 | 1 |
-| **L. Analytics** | 2 | 1 | 3 | 2 | 2 | 3 | 2 | 3 | 3 | 3 | 2 | - | 2 | 2 | 1 | 3 | 2 | 2 |
-| **M. Maps** | 2 | 1 | 2 | 1 | 3 | 2 | 1 | 1 | 1 | 2 | 2 | 2 | - | 1 | 1 | 1 | 1 | 1 |
-| **N. Email** | 3 | 1 | 2 | 1 | 1 | 1 | 2 | 2 | 2 | 3 | 1 | 2 | 1 | - | 1 | 1 | 2 | 1 |
-| **O. Image Gen** | 2 | 1 | 2 | 1 | 3 | 1 | 1 | 1 | 1 | 3 | 1 | 1 | 1 | 1 | - | 1 | 2 | 2 |
-| **P. Dev Tools** | 3 | 1 | 3 | 2 | 2 | 2 | 2 | 2 | 1 | 1 | 1 | 3 | 1 | 1 | 1 | - | 2 | 1 |
-| **Q. Productivity** | 3 | 2 | 1 | 2 | 2 | 2 | 2 | 3 | 1 | 1 | 2 | 2 | 1 | 2 | 2 | 2 | - | 1 |
-| **R. Inference** | 2 | 2 | 3 | 2 | 2 | 1 | 1 | 2 | 1 | 2 | 1 | 2 | 1 | 1 | 2 | 1 | 1 | - |
+|     | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U |
+|-----|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **A. LLM** | - | 3 | 3 | 3 | 3 | 2 | 2 | 3 | 3 | 3 | 3 | 2 | 2 | 3 | 2 | 3 | 3 | 2 | 3 | 2 | 3 |
+| **B. Vector DB** | 3 | - | 2 | 3 | 2 | 3 | 1 | 1 | 1 | 2 | 2 | 1 | 1 | 1 | 1 | 1 | 2 | 2 | 2 | 1 | 1 |
+| **C. Cloud** | 3 | 2 | - | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 3 | 1 | 3 | 2 | 2 | 2 |
+| **D. Framework** | 3 | 3 | 2 | - | 3 | 2 | 1 | 2 | 1 | 2 | 2 | 2 | 1 | 1 | 1 | 2 | 2 | 2 | 3 | 2 | 2 |
+| **E. Frontend** | 3 | 2 | 2 | 3 | - | 3 | 3 | 2 | 2 | 2 | 2 | 2 | 3 | 1 | 3 | 2 | 2 | 2 | 2 | 3 | 3 |
+| **F. Database** | 2 | 3 | 2 | 2 | 3 | - | 3 | 2 | 2 | 2 | 2 | 3 | 2 | 1 | 1 | 2 | 2 | 1 | 2 | 3 | 2 |
+| **G. Auth** | 2 | 1 | 2 | 1 | 3 | 3 | - | 2 | 3 | 2 | 1 | 2 | 1 | 2 | 1 | 2 | 2 | 1 | 1 | 3 | 1 |
+| **H. Comms** | 3 | 1 | 2 | 2 | 2 | 2 | 2 | - | 1 | 2 | 1 | 3 | 1 | 2 | 1 | 2 | 3 | 2 | 2 | 2 | 2 |
+| **I. Payments** | 3 | 1 | 2 | 1 | 2 | 2 | 3 | 1 | - | 3 | 1 | 3 | 1 | 2 | 1 | 1 | 1 | 1 | 1 | 2 | 2 |
+| **J. E-commerce** | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | - | 3 | 3 | 2 | 3 | 3 | 1 | 1 | 2 | 1 | 3 | 3 |
+| **K. Search** | 3 | 2 | 2 | 2 | 2 | 2 | 1 | 1 | 1 | 3 | - | 2 | 2 | 1 | 1 | 1 | 2 | 1 | 2 | 2 | 2 |
+| **L. Analytics** | 2 | 1 | 3 | 2 | 2 | 3 | 2 | 3 | 3 | 3 | 2 | - | 2 | 2 | 1 | 3 | 2 | 2 | 2 | 2 | 3 |
+| **M. Maps** | 2 | 1 | 2 | 1 | 3 | 2 | 1 | 1 | 1 | 2 | 2 | 2 | - | 1 | 1 | 1 | 1 | 1 | 1 | 2 | 2 |
+| **N. Email** | 3 | 1 | 2 | 1 | 1 | 1 | 2 | 2 | 2 | 3 | 1 | 2 | 1 | - | 1 | 1 | 2 | 1 | 1 | 2 | 2 |
+| **O. Image Gen** | 2 | 1 | 2 | 1 | 3 | 1 | 1 | 1 | 1 | 3 | 1 | 1 | 1 | 1 | - | 1 | 2 | 2 | 1 | 3 | 3 |
+| **P. Dev Tools** | 3 | 1 | 3 | 2 | 2 | 2 | 2 | 2 | 1 | 1 | 1 | 3 | 1 | 1 | 1 | - | 2 | 1 | 3 | 2 | 2 |
+| **Q. Productivity** | 3 | 2 | 1 | 2 | 2 | 2 | 2 | 3 | 1 | 1 | 2 | 2 | 1 | 2 | 2 | 2 | - | 1 | 2 | 2 | 3 |
+| **R. Inference** | 2 | 2 | 3 | 2 | 2 | 1 | 1 | 2 | 1 | 2 | 1 | 2 | 1 | 1 | 2 | 1 | 1 | - | 3 | 2 | 2 |
+| **S. CLI Coders** | 3 | 2 | 2 | 3 | 2 | 2 | 1 | 2 | 1 | 1 | 2 | 2 | 1 | 1 | 1 | 3 | 2 | 3 | - | 3 | 2 |
+| **T. Vibe Coding** | 2 | 1 | 2 | 2 | 3 | 3 | 3 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 3 | - | 3 |
+| **U. Infographics** | 3 | 1 | 2 | 2 | 3 | 2 | 1 | 2 | 2 | 3 | 2 | 3 | 2 | 2 | 3 | 2 | 3 | 2 | 2 | 3 | - |
 
 ---
 
@@ -1313,6 +1332,353 @@ Cloud monitoring.
 
 ---
 
+### 46. Headless CLI Coders × LLM
+
+**Synergy Level: HIGH (3)** | **Pattern: AI-Augmented Development**
+
+CLI-based coding agents that leverage LLM capabilities.
+
+#### Specific Pairings
+
+| CLI Tool | LLM | Best For | Unique Advantage |
+|----------|-----|----------|------------------|
+| **Claude Code + Claude** | Full-stack development | Native integration, agentic features |
+| **Cursor CLI + OpenAI** | Terminal-first workflows | IDE companion, SSH support |
+| **Aider + Claude/GPT** | Code refactoring | Best context fetching, git integration |
+| **Cline + Any LLM** | VS Code + terminal | Human-in-the-loop, MCP support |
+| **Codex CLI + OpenAI** | Autonomous coding | Self-healing, codex-1 model |
+| **Gemini CLI + Gemini** | Large-context refactors | 1M+ token context |
+
+#### Use Cases
+
+| Use Case | Best Pairing | Why |
+|----------|--------------|-----|
+| Complex refactoring | Aider + Claude | Best context, git-aware |
+| Terminal-heavy workflow | Claude Code + Claude | Agentic subagents |
+| IDE + terminal combo | Cline + Any | Human approval each step |
+| Autonomous tasks | Codex CLI + OpenAI | Extended autonomy |
+| Remote server work | Cursor CLI + Any | SSH-native |
+
+#### Submission Focus Points
+
+```
+□ Code generation accuracy
+□ Context understanding quality
+□ Git integration workflow
+□ Multi-file edit capability
+□ Error recovery handling
+□ Token efficiency
+```
+
+---
+
+### 47. Headless CLI Coders × Dev Tools
+
+**Synergy Level: HIGH (3)** | **Pattern: Automated Development Pipeline**
+
+Terminal AI agents integrated with development tooling.
+
+#### Specific Pairings
+
+| CLI Tool | Dev Tool | Best For | Unique Advantage |
+|----------|----------|----------|------------------|
+| **Claude Code + GitHub** | PR automation | Code review, PR creation |
+| **Aider + Git** | Commit workflow | Auto-commits, diff awareness |
+| **Cline + Docker** | Container development | Environment management |
+| **Codex CLI + GitHub Actions** | CI/CD automation | Workflow integration |
+| **Any + Postman** | API development | Request generation |
+
+#### Use Cases
+
+| Use Case | Best Pairing | Why |
+|----------|--------------|-----|
+| Automated PRs | Claude Code + GitHub | gh CLI integration |
+| Test generation | Any CLI + Testing frameworks | Automated test creation |
+| Documentation | Any CLI + GitHub | README, docs generation |
+| Container setup | Cline + Docker | Interactive development |
+
+---
+
+### 48. Headless CLI Coders × Vibe Coding
+
+**Synergy Level: HIGH (3)** | **Pattern: Hybrid Development Workflow**
+
+Combining rapid prototyping with precise code editing.
+
+#### Specific Pairings
+
+| CLI Tool | Vibe Tool | Best For | Unique Advantage |
+|----------|-----------|----------|------------------|
+| **Claude Code + Lovable** | Prototype → production | Sync to GitHub, refine in CLI |
+| **Cursor CLI + Replit** | Cloud + local dev | Replit hosting, local editing |
+| **Aider + Bolt.new** | Quick apps + polish | Generate → refine workflow |
+| **Cline + v0** | UI components + logic | Frontend scaffolding |
+
+#### Use Cases
+
+| Use Case | Best Pairing | Why |
+|----------|--------------|-----|
+| MVP to production | Lovable + Claude Code | 60% solution → complete |
+| Hackathon workflow | Bolt.new + Aider | Speed + polish |
+| UI + backend | v0 + CLI Coders | Frontend → full stack |
+| Remote dev + local polish | Replit + Cursor CLI | Best of both worlds |
+
+---
+
+### 49. Vibe Coding × Frontend/Deployment
+
+**Synergy Level: HIGH (3)** | **Pattern: Instant App Deployment**
+
+Natural language to deployed application.
+
+#### Specific Pairings
+
+| Vibe Tool | Frontend | Best For | Unique Advantage |
+|-----------|----------|----------|------------------|
+| **Lovable + Vercel** | Full-stack apps | One-click deploy |
+| **Bolt.new + Netlify** | Static + serverless | Built-in deployment |
+| **Replit + Replit Hosting** | All-in-one | Zero config |
+| **v0 + Vercel** | React components | Shadcn integration |
+| **Windsurf + Any** | IDE-integrated | Code + deploy |
+
+#### Use Cases
+
+| Use Case | Best Pairing | Why |
+|----------|--------------|-----|
+| Instant prototype | Lovable + Vercel | Minutes to deploy |
+| Hackathon demo | Bolt.new + Netlify | Fast iteration |
+| Team collaboration | Replit + Replit | Multi-user |
+| Component library | v0 + Vercel | Design system |
+
+#### Submission Focus Points
+
+```
+□ Time from idea to deploy
+□ Iteration speed
+□ Deployment configuration
+□ Custom domain setup
+□ Environment variables
+```
+
+---
+
+### 50. Vibe Coding × Database
+
+**Synergy Level: HIGH (3)** | **Pattern: Full-Stack App Generation**
+
+Natural language to database-backed applications.
+
+#### Specific Pairings
+
+| Vibe Tool | Database | Best For | Unique Advantage |
+|-----------|----------|----------|------------------|
+| **Lovable + Supabase** | Full-stack apps | Native integration |
+| **Bolt.new + Supabase** | Quick backends | Auto-schema |
+| **Replit + Postgres** | Persistent apps | Built-in DB |
+| **Lovable + Firebase** | Real-time apps | Auth + data |
+
+#### Use Cases
+
+| Use Case | Best Pairing | Why |
+|----------|--------------|-----|
+| SaaS prototype | Lovable + Supabase | Auth + DB + hosting |
+| Real-time app | Any + Firebase | Live updates |
+| Data-driven app | Bolt.new + Supabase | Schema generation |
+| Persistent bot | Replit + Postgres | Always-on hosting |
+
+---
+
+### 51. Vibe Coding × Authentication
+
+**Synergy Level: HIGH (3)** | **Pattern: Secure App Generation**
+
+Natural language apps with built-in auth.
+
+#### Specific Pairings
+
+| Vibe Tool | Auth | Best For | Unique Advantage |
+|-----------|------|----------|------------------|
+| **Lovable + Supabase Auth** | Full-stack | Integrated |
+| **Lovable + Clerk** | Modern auth | Pre-built components |
+| **Bolt.new + Firebase Auth** | Quick setup | Social logins |
+| **Replit + Any Auth** | Hackathons | Fast prototype |
+
+#### Use Cases
+
+| Use Case | Best Pairing | Why |
+|----------|--------------|-----|
+| User-based app | Lovable + Clerk | Best UX |
+| Quick prototype | Bolt.new + Supabase | All-in-one |
+| Social login | Any + Firebase | Easy OAuth |
+
+---
+
+### 52. Vibe Coding × E-commerce
+
+**Synergy Level: HIGH (3)** | **Pattern: Instant Storefronts**
+
+Natural language to online stores.
+
+#### Specific Pairings
+
+| Vibe Tool | E-commerce | Best For | Unique Advantage |
+|-----------|------------|----------|------------------|
+| **Lovable + Shopify** | Custom storefronts | API integration |
+| **Bolt.new + Stripe** | Checkout pages | Payment ready |
+| **Replit + Stripe** | Quick commerce | Prototype to prod |
+
+#### Use Cases
+
+| Use Case | Best Pairing | Why |
+|----------|--------------|-----|
+| Landing + checkout | Bolt.new + Stripe | Minutes to payment |
+| Custom storefront | Lovable + Shopify | Full customization |
+| Subscription app | Any + Stripe | Recurring billing |
+
+---
+
+### 53. Vibe Coding × Image Generation
+
+**Synergy Level: HIGH (3)** | **Pattern: AI-Native Applications**
+
+Apps that generate and display AI images.
+
+#### Specific Pairings
+
+| Vibe Tool | Image Gen | Best For | Unique Advantage |
+|-----------|-----------|----------|------------------|
+| **Lovable + Replicate** | AI art apps | Model variety |
+| **Bolt.new + DALL-E** | Quick image apps | OpenAI integration |
+| **Replit + Stability AI** | Image services | API access |
+
+#### Use Cases
+
+| Use Case | Best Pairing | Why |
+|----------|--------------|-----|
+| AI art platform | Lovable + Replicate | Multiple models |
+| Image tool | Bolt.new + Any | Fast iteration |
+| Custom generator | Replit + Stability | Control + hosting |
+
+---
+
+### 54. Infographics × LLM
+
+**Synergy Level: HIGH (3)** | **Pattern: AI-Powered Data Visualization**
+
+Use LLMs to generate infographic content and layouts.
+
+#### Specific Pairings
+
+| Infographics | LLM | Best For | Unique Advantage |
+|--------------|-----|----------|------------------|
+| **Nano Banana + OpenAI** | Content generation | GPT-4 text + insights |
+| **Nano Banana + Claude** | Data analysis | Long context for reports |
+| **Nano Banana + Gemini** | Multimodal | Image understanding |
+
+#### Use Cases
+
+| Use Case | Best Pairing | Why |
+|----------|--------------|-----|
+| Auto-reports | Nano Banana + Claude | Analyze data, generate visuals |
+| Marketing content | Nano Banana + GPT-4 | Compelling copy + design |
+| Research summaries | Nano Banana + Gemini | Multi-source synthesis |
+
+---
+
+### 55. Infographics × Analytics
+
+**Synergy Level: HIGH (3)** | **Pattern: Data-to-Visual Pipeline**
+
+Transform analytics data into shareable infographics.
+
+#### Specific Pairings
+
+| Infographics | Analytics | Best For | Unique Advantage |
+|--------------|-----------|----------|------------------|
+| **Nano Banana + Mixpanel** | User metrics | Behavioral insights |
+| **Nano Banana + Segment** | Event data | Cross-platform data |
+| **Nano Banana + Datadog** | Ops metrics | Performance visualization |
+
+#### Use Cases
+
+| Use Case | Best Pairing | Why |
+|----------|--------------|-----|
+| Monthly reports | Nano Banana + Mixpanel | User engagement visuals |
+| Executive dashboards | Nano Banana + Segment | Unified data view |
+| Status pages | Nano Banana + Datadog | Uptime/performance |
+
+---
+
+### 56. Infographics × E-commerce
+
+**Synergy Level: HIGH (3)** | **Pattern: Product Visual Marketing**
+
+Generate product infographics and marketing materials.
+
+#### Specific Pairings
+
+| Infographics | E-commerce | Best For | Unique Advantage |
+|--------------|------------|----------|------------------|
+| **Nano Banana + Shopify** | Product showcases | Direct store integration |
+
+#### Use Cases
+
+| Use Case | Best Pairing | Why |
+|----------|--------------|-----|
+| Product comparisons | Nano Banana + Shopify | Feature breakdowns |
+| Size guides | Nano Banana + Shopify | Visual specifications |
+| Sale promotions | Nano Banana + Shopify | Campaign graphics |
+
+---
+
+### 57. Infographics × Frontend
+
+**Synergy Level: HIGH (3)** | **Pattern: Embedded Visualizations**
+
+Display dynamic infographics in web applications.
+
+#### Specific Pairings
+
+| Infographics | Frontend | Best For | Unique Advantage |
+|--------------|----------|----------|------------------|
+| **Nano Banana + Vercel** | Production apps | Edge deployment |
+| **Nano Banana + Streamlit** | Data apps | Python integration |
+| **Nano Banana + Gradio** | ML demos | Model visualization |
+
+#### Use Cases
+
+| Use Case | Best Pairing | Why |
+|----------|--------------|-----|
+| Data dashboards | Nano Banana + Streamlit | Interactive charts |
+| Landing pages | Nano Banana + Vercel | Marketing visuals |
+| Model explanations | Nano Banana + Gradio | AI interpretability |
+
+---
+
+### 58. Infographics × Vibe Coding
+
+**Synergy Level: HIGH (3)** | **Pattern: Visual App Builders**
+
+Build infographic-generating applications with natural language.
+
+#### Specific Pairings
+
+| Infographics | Vibe Tool | Best For | Unique Advantage |
+|--------------|-----------|----------|------------------|
+| **Nano Banana + Lovable** | Full apps | Complete visual apps |
+| **Nano Banana + Bolt.new** | Quick prototypes | Fast iteration |
+| **Nano Banana + v0** | UI components | Design-focused |
+
+#### Use Cases
+
+| Use Case | Best Pairing | Why |
+|----------|--------------|-----|
+| Report generator | Nano Banana + Lovable | Full-stack app |
+| Infographic tool | Nano Banana + Bolt.new | Rapid MVP |
+| Design system | Nano Banana + v0 | Component library |
+
+---
+
 ## Inference Rules for N-Sponsor Combinations
 
 ### Building 3-Sponsor Combinations
@@ -1384,6 +1750,10 @@ Example:
 | **Image App** | Image Gen + Frontend | + LLM, + Storage |
 | **Analytics Dashboard** | Database + Analytics | + LLM, + Frontend |
 | **Email Automation** | Email + LLM | + Database, + Analytics |
+| **Rapid MVP** | Vibe Coding + Database | + Auth, + CLI Coders |
+| **Code Automation** | CLI Coders + Dev Tools | + LLM, + Cloud |
+| **Hackathon Speed** | Vibe Coding + CLI Coders | + Database, + Auth |
+| **Full-Stack AI App** | Vibe Coding + LLM | + Database, + Deployment |
 
 ### By Sponsor → Best Partners
 
@@ -1399,6 +1769,15 @@ Example:
 | **Stripe** | Clerk, Shopify, Segment | Auth, commerce, analytics |
 | **Shopify** | Algolia, Stripe, OpenAI | Search, payments, AI |
 | **Slack** | OpenAI, MongoDB, Datadog | AI, storage, monitoring |
+| **Claude Code** | Claude, GitHub, LangChain | Native AI, PRs, orchestration |
+| **Aider** | Any LLM, Git, GitHub | Context-aware, commits, PRs |
+| **Cursor CLI** | OpenAI, GitHub, Docker | IDE companion, remote work |
+| **Cline** | Any LLM, Docker, VS Code | Human-in-loop, MCP |
+| **Codex CLI** | OpenAI, GitHub Actions, Cloud | Autonomous, CI/CD |
+| **Lovable** | Supabase, Vercel, Clerk | Full-stack, deploy, auth |
+| **Replit** | Postgres, Any LLM, Stripe | Built-in DB, AI, payments |
+| **Bolt.new** | Netlify, Supabase, Stripe | Deploy, backend, payments |
+| **v0** | Vercel, Shadcn, React | Components, design, frontend |
 
 ---
 
@@ -1440,6 +1819,16 @@ Example:
 | Dev Tools | Analytics | Developer insights |
 | Framework | Frontend | AI app development |
 | Cloud | Analytics | Infrastructure observability |
+| CLI Coders | LLM | AI-augmented development |
+| CLI Coders | Dev Tools | Automated dev pipeline |
+| CLI Coders | Framework | Orchestrated coding agents |
+| CLI Coders | Inference | Fast code generation |
+| CLI Coders | Vibe Coding | Hybrid dev workflow |
+| Vibe Coding | Frontend | Instant app deployment |
+| Vibe Coding | Database | Full-stack generation |
+| Vibe Coding | Auth | Secure app generation |
+| Vibe Coding | E-commerce | Instant storefronts |
+| Vibe Coding | Image Gen | AI-native apps |
 
 ---
 

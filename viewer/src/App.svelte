@@ -1,6 +1,10 @@
 <script>
   import { marked } from 'marked';
   import { onMount } from 'svelte';
+  import Questionnaire from './Questionnaire.svelte';
+
+  // App mode: 'docs' or 'questionnaire'
+  let appMode = 'docs';
 
   // Configure marked to generate heading IDs for anchor links
   const renderer = new marked.Renderer();
@@ -17,18 +21,39 @@
   marked.setOptions({ renderer });
 
   // File definitions with metadata
-  const files = [
+  let files = [
+    // Ideas
     { id: 'sponsor_combinations', name: 'Tool Combinations (455 ideas)', path: 'sponsor_combinations_ideas.md', category: 'Ideas', icon: '🔗' },
     { id: 'local_ai_100', name: '100 Local AI Uses (4GB)', path: '100_local_ai_usecases_4gb.md', category: 'Ideas', icon: '💻' },
     { id: 'free_hackathon', name: 'Free Hackathon Ideas', path: 'free_hackathon_ideas.md', category: 'Ideas', icon: '💡' },
+    { id: 'ics_combinations', name: 'ICS Tool Combinations', path: 'ics_combinations_ideas.md', category: 'Ideas', icon: '🏭' },
+    { id: 'ar_combinations', name: 'AR Tool Combinations', path: 'ar_tools_combinations_ideas.md', category: 'Ideas', icon: '👓' },
+
+    // Guides
     { id: 'local_ai_guide', name: 'Local AI Guide', path: 'local_ai_guide.md', category: 'Guides', icon: '🤖' },
     { id: 'free_tier', name: 'Free Tier Services', path: 'free_tier_services.md', category: 'Guides', icon: '🆓' },
     { id: 'hackathon_platforms', name: 'Hackathon Platforms', path: 'hackathon_platforms_guide.md', category: 'Guides', icon: '🏆' },
+    { id: 'github_free_tools', name: 'GitHub Free Tools', path: 'github_free_tools_guide.md', category: 'Guides', icon: '🐙' },
+    { id: 'ai_video_generation', name: 'AI Video Generation', path: 'ai_video_generation_guide.md', category: 'Guides', icon: '🎬' },
+
+    // AI Agents
+    { id: 'headless_ai_coders', name: 'Headless AI + GitHub Actions', path: 'headless_ai_coders_github_actions.md', category: 'AI Agents', icon: '⚡' },
+    { id: 'autonomous_agents', name: 'Autonomous Coding Agents', path: 'autonomous_coding_agents.md', category: 'AI Agents', icon: '🤖' },
+
+    // Resources
+    { id: 'huggingface_gradio', name: 'HuggingFace & Gradio', path: 'huggingface_gradio_resources.md', category: 'Resources', icon: '🤗' },
+    { id: 'hackathon_company', name: 'Company Resources', path: 'hackathon_company_resources.md', category: 'Resources', icon: '🏢' },
+    { id: 'hackathon_project', name: 'Project Ideas', path: 'hackathon_project_ideas.md', category: 'Resources', icon: '💼' },
+
+    // Reference
     { id: 'sponsor_matrix', name: 'Sponsor Matrix', path: 'sponsor_combinations_matrix.md', category: 'Reference', icon: '📊' },
     { id: 'template_merging', name: 'Template Merging', path: 'template_merging_guide.md', category: 'Reference', icon: '📝' },
+    { id: 'sponsor_updates', name: 'Sponsor Updates', path: 'sponsor_updates_tracking.md', category: 'Reference', icon: '📋' },
   ];
 
-  const categories = [...new Set(files.map(f => f.category))];
+  // Category order for display
+  const categoryOrder = ['Ideas', 'Guides', 'AI Agents', 'Resources', 'Reference'];
+  $: categories = categoryOrder.filter(cat => files.some(f => f.category === cat));
 
   let openPanels = [];
   let fileContents = {};
@@ -36,6 +61,18 @@
   let searchQuery = '';
   let sidebarCollapsed = false;
   let instanceCounter = 0;
+  let refreshing = false;
+
+  // Refresh file contents (clear cache and reload)
+  async function refreshFiles() {
+    refreshing = true;
+    fileContents = {};
+    // Reload any currently open panels
+    for (const panel of openPanels) {
+      await loadFile(panel);
+    }
+    refreshing = false;
+  }
 
   // Load file content
   async function loadFile(file) {
@@ -98,13 +135,24 @@
   <!-- Sidebar -->
   <aside class="sidebar" class:collapsed={sidebarCollapsed}>
     <div class="sidebar-header">
-      <h1>📚 Sponsor Prep</h1>
+      <h1>{appMode === 'docs' ? '📚' : '💭'} Sponsor Prep</h1>
       <button class="collapse-btn" on:click={() => sidebarCollapsed = !sidebarCollapsed}>
         {sidebarCollapsed ? '→' : '←'}
       </button>
     </div>
 
     {#if !sidebarCollapsed}
+      <div class="mode-toggle">
+        <button class:active={appMode === 'docs'} on:click={() => appMode = 'docs'}>
+          📚 Docs
+        </button>
+        <button class:active={appMode === 'questionnaire'} on:click={() => appMode = 'questionnaire'}>
+          💭 100 Questions
+        </button>
+      </div>
+    {/if}
+
+    {#if !sidebarCollapsed && appMode === 'docs'}
       <div class="search-box">
         <input
           type="text"
@@ -116,6 +164,9 @@
       <div class="sidebar-actions">
         <button on:click={openAll}>Open All</button>
         <button on:click={closeAll}>Close All</button>
+        <button on:click={refreshFiles} class:refreshing disabled={refreshing}>
+          {refreshing ? '...' : '↻'}
+        </button>
       </div>
 
       <div class="layout-toggle">
@@ -150,11 +201,20 @@
         </div>
       </div>
     {/if}
+
+    {#if !sidebarCollapsed && appMode === 'questionnaire'}
+      <div class="sidebar-info">
+        <p>Answer questions to think through your hackathon project.</p>
+        <p class="hint">Responses auto-save to browser storage.</p>
+      </div>
+    {/if}
   </aside>
 
   <!-- Main Content -->
   <main class="content">
-    {#if openPanels.length === 0}
+    {#if appMode === 'questionnaire'}
+      <Questionnaire />
+    {:else if openPanels.length === 0}
       <div class="empty-state">
         <div class="empty-icon">📄</div>
         <h2>No files open</h2>
@@ -265,6 +325,48 @@
     padding: 0.25rem;
   }
 
+  .mode-toggle {
+    display: flex;
+    padding: 0.5rem 0.75rem;
+    gap: 0.25rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .mode-toggle button {
+    flex: 1;
+    padding: 0.5rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all 0.15s ease;
+  }
+
+  .mode-toggle button:hover {
+    background: var(--border-color);
+  }
+
+  .mode-toggle button.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  .sidebar-info {
+    padding: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .sidebar-info .hint {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
   .search-box {
     padding: 0.75rem;
   }
@@ -304,6 +406,15 @@
   .sidebar-actions button:hover {
     background: var(--border-color);
     color: var(--text-primary);
+  }
+
+  .sidebar-actions button.refreshing {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
   .layout-toggle {
