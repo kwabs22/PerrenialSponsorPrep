@@ -1,0 +1,2 @@
+libsql-experimental>=0.0.30
+python-dotenv>=1.0.0

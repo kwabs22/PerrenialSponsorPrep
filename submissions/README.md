@@ -11,7 +11,7 @@
 
 ---
 
-## All Submissions (46 projects)
+## All Submissions (96 projects)
 
 ### Batch 1: LLM Providers (7 projects)
 
@@ -99,6 +99,106 @@
 | 45 | **Azure** | OpenAI gpt-4o-realtime | Voice Translation | ✅ |
 | 46 | **Cloudflare** | Workers Builds + D1 | Edge Notes App | ✅ |
 
+### Batch 9: Observability & Monitoring (6 projects)
+
+| # | Sponsor | Latest Feature | Project | Status |
+|---|---------|---------------|---------|--------|
+| 47 | **Sentry** | Session Replay + AI Issues | Error Tracking | ✅ |
+| 48 | **Datadog** | Watchdog AI + Log Patterns | APM Dashboard | ✅ |
+| 49 | **New Relic** | AI Monitoring + NRQL AI | Observability | ✅ |
+| 50 | **Honeycomb** | BubbleUp + SLOs | Distributed Tracing | ✅ |
+| 51 | **Grafana** | Grafana 11 + AI/ML | Metrics Dashboard | ✅ |
+| 52 | **PostHog** | Web Analytics + Session Replay | Product Analytics | ✅ |
+
+### Batch 10: AI Infrastructure (7 projects)
+
+| # | Sponsor | Latest Feature | Project | Status |
+|---|---------|---------------|---------|--------|
+| 53 | **Groq** | LPU Inference + Llama 3.1 | Fast Inference | ✅ |
+| 54 | **Together AI** | Fine-tuning + Embeddings | Model Training | ✅ |
+| 55 | **Modal** | GPU Containers + Webhooks | Serverless ML | ✅ |
+| 56 | **Banana** | Serverless GPUs | Model Deployment | ✅ |
+| 57 | **RunPod** | Serverless + Pods | GPU Compute | ✅ |
+| 58 | **Weights & Biases** | Weave + Prompts | Experiment Tracking | ✅ |
+| 59 | **Lightning AI** | Studios + Apps | ML Development | ✅ |
+
+### Batch 11: Data & Analytics (6 projects)
+
+| # | Sponsor | Latest Feature | Project | Status |
+|---|---------|---------------|---------|--------|
+| 60 | **DuckDB** | WASM + Extensions | Local Analytics | ✅ |
+| 61 | **Snowflake** | Cortex AI + Streamlit | Data Warehouse | ✅ |
+| 62 | **Databricks** | Unity Catalog + AI/BI | Lakehouse | ✅ |
+| 63 | **Segment** | Profiles + Audiences | Customer Data | ✅ |
+| 64 | **Mixpanel** | Session Replay + Warehouse | Event Analytics | ✅ |
+| 65 | **Amplitude** | Session Replay + AI | Product Analytics | ✅ |
+
+### Batch 12: Media & Storage (6 projects)
+
+| # | Sponsor | Latest Feature | Project | Status |
+|---|---------|---------------|---------|--------|
+| 66 | **Cloudinary** | GenAI Transformations | Image Pipeline | ✅ |
+| 67 | **Mux** | Realtime Video + AI | Video Streaming | ✅ |
+| 68 | **ImageKit** | AI Transformations | Image CDN | ✅ |
+| 69 | **Uploadcare** | AI Image Processing | File Uploads | ✅ |
+| 70 | **Backblaze** | B2 + S3 Compatible | Object Storage | ✅ |
+| 71 | **Cloudflare R2** | Zero Egress + S3 API | Edge Storage | ✅ |
+
+### Batch 13: LLM Providers Expansion (5 projects)
+
+| # | Sponsor | Latest Feature | Project | Status |
+|---|---------|---------------|---------|--------|
+| 72 | **Perplexity** | Sonar API + Citations | Research Assistant | ✅ |
+| 73 | **AI21** | Jamba + Contextual RAG | Document Q&A | ✅ |
+| 74 | **xAI** | Grok API + Function Calling | Chat Assistant | ✅ |
+| 75 | **DeepSeek** | DeepSeek-V3 + Coder | Code Completion | ✅ |
+| 76 | **Cerebras** | WSE-3 + Ultra-fast Inference | Fast Inference | ✅ |
+
+### Batch 14: Vector DBs Expansion (4 projects)
+
+| # | Sponsor | Latest Feature | Project | Status |
+|---|---------|---------------|---------|--------|
+| 77 | **Milvus** | GPU Index + Multi-vector | Vector Search | ✅ |
+| 78 | **Elasticsearch** | ESRE + Vector Search | Hybrid Search | ✅ |
+| 79 | **Redis** | Vector Search + JSON | Cache + Search | ✅ |
+| 80 | **Vespa** | Colbert + Hybrid | Enterprise Search | ✅ |
+
+### Batch 15: Databases Expansion (4 projects)
+
+| # | Sponsor | Latest Feature | Project | Status |
+|---|---------|---------------|---------|--------|
+| 81 | **Turso** | libSQL + Edge | Edge Database | ✅ |
+| 82 | **CockroachDB** | Serverless + AI | Distributed SQL | ✅ |
+| 83 | **Xata** | AI Questions + Search | Serverless Postgres | ✅ |
+| 84 | **Fauna** | Document-Relational | Global Database | ✅ |
+
+### Batch 16: Auth Expansion (3 projects)
+
+| # | Sponsor | Latest Feature | Project | Status |
+|---|---------|---------------|---------|--------|
+| 85 | **WorkOS** | Admin Portal + SSO | Enterprise Auth | ✅ |
+| 86 | **Stytch** | Device Fingerprinting | Passwordless Auth | ✅ |
+| 87 | **Descope** | Flows + Connectors | No-code Auth | ✅ |
+
+### Batch 17: Communication Expansion (3 projects)
+
+| # | Sponsor | Latest Feature | Project | Status |
+|---|---------|---------------|---------|--------|
+| 88 | **Postmark** | Message Streams + Webhooks | Transactional Email | ✅ |
+| 89 | **Resend** | React Email + Broadcasts | Email API | ✅ |
+| 90 | **Knock** | Workflows + In-app | Notifications | ✅ |
+
+### Batch 18: Real-time & Search (6 projects)
+
+| # | Sponsor | Latest Feature | Project | Status |
+|---|---------|---------------|---------|--------|
+| 91 | **Liveblocks** | Yjs + Comments | Collaboration | ✅ |
+| 92 | **Ably** | Pub/Sub + Presence | Real-time Messaging | ✅ |
+| 93 | **Pusher** | Channels + Beams | Push Notifications | ✅ |
+| 94 | **PartyKit** | Edge Compute + State | Multiplayer | ✅ |
+| 95 | **Meilisearch** | AI Search + Hybrid | Instant Search | ✅ |
+| 96 | **Typesense** | Vector Search + Geo | Search Engine | ✅ |
+
 ---
 
 ## Submission Structure
@@ -152,6 +252,56 @@ XX-sponsor-feature/
 | Communication | Discord | Application Commands |
 | Communication | Twilio | Verify v2 + WhatsApp |
 | Communication | SendGrid | Dynamic Templates v3 |
+| Observability | Sentry | Session Replay + AI Issues |
+| Observability | Datadog | Watchdog AI + Log Patterns |
+| Observability | New Relic | AI Monitoring + NRQL AI |
+| Observability | Honeycomb | BubbleUp + SLOs |
+| Observability | Grafana | Grafana 11 + AI/ML |
+| Observability | PostHog | Web Analytics + Session Replay |
+| AI Infra | Groq | LPU Ultra-fast Inference |
+| AI Infra | Together AI | Fine-tuning + Embeddings |
+| AI Infra | Modal | GPU Containers + Webhooks |
+| AI Infra | Banana | Serverless GPUs |
+| AI Infra | RunPod | Serverless + Pods |
+| AI Infra | Weights & Biases | Weave + Prompts |
+| AI Infra | Lightning AI | Studios + Apps |
+| Data | DuckDB | WASM + Extensions |
+| Data | Snowflake | Cortex AI + Streamlit |
+| Data | Databricks | Unity Catalog + AI/BI |
+| Data | Segment | Profiles + Audiences |
+| Data | Mixpanel | Session Replay + Warehouse |
+| Data | Amplitude | Session Replay + AI |
+| Media | Cloudinary | GenAI Transformations |
+| Media | Mux | Realtime Video + AI |
+| Media | ImageKit | AI Transformations |
+| Media | Uploadcare | AI Image Processing |
+| Storage | Backblaze | B2 + S3 Compatible |
+| Storage | Cloudflare R2 | Zero Egress + S3 API |
+| LLM | Perplexity | Sonar API + Citations |
+| LLM | AI21 | Jamba + Contextual RAG |
+| LLM | xAI | Grok API + Function Calling |
+| LLM | DeepSeek | DeepSeek-V3 + Coder |
+| LLM | Cerebras | WSE-3 Ultra-fast Inference |
+| Vector DB | Milvus | GPU Index + Multi-vector |
+| Vector DB | Elasticsearch | ESRE + Vector Search |
+| Vector DB | Redis | Vector Search + JSON |
+| Vector DB | Vespa | Colbert + Hybrid |
+| Database | Turso | libSQL + Edge |
+| Database | CockroachDB | Serverless + AI |
+| Database | Xata | AI Questions + Search |
+| Database | Fauna | Document-Relational |
+| Auth | WorkOS | Admin Portal + SSO |
+| Auth | Stytch | Device Fingerprinting |
+| Auth | Descope | Flows + Connectors |
+| Communication | Postmark | Message Streams + Webhooks |
+| Communication | Resend | React Email + Broadcasts |
+| Communication | Knock | Workflows + In-app |
+| Real-time | Liveblocks | Yjs + Comments |
+| Real-time | Ably | Pub/Sub + Presence |
+| Real-time | Pusher | Channels + Beams |
+| Real-time | PartyKit | Edge Compute + State |
+| Search | Meilisearch | AI Search + Hybrid |
+| Search | Typesense | Vector Search + Geo |
 
 ---
 
@@ -182,4 +332,4 @@ Example combinations:
 ---
 
 *Created: December 2024*
-*Total Submissions: 46 completed*
+*Total Submissions: 96 completed*
